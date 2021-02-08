@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* flex style mit mittiger anordnung des contents*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #051937;
+}
+
+.container {
+  position: relative;
+  transform: rotate(135deg);
+}
+
+.circle {
+  border: 60px dashed #008793; /*halbkreis oben*/
+  border-top-color: #051937; /* rechtes viertel unten*/
+  border-right-color: #051937; /* linkes viertel unten*/
+  box-shadow: 0 0 0 2px #051937; /*quasi border*/
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 0;
+  width: 0;
+  /* wir verschieben den Kreis von seiner linken oberen Ecke aus gesehen, damit er tatsächlich mittig ist*/
+  transform: translate(-50%, -50%);
+  animation: 24s ease-in-out infinite;
+}
+/*unbedingt mit der Animationszeit spielen! unbeding mit den Farben spielen!
+for future: farben.... regenbogen?
+ausprobieren ev. jedes 2. andere Farbe durch geschwindigkeit und farben pattern erzeugen*/

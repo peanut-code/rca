@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <script>
+      //mit dem document query selector ALL holen wir uns ALLE Elemente der Klasse Circle
+      const circles = document.querySelectorAll(".circle");
+
+      circles.forEach((circle, i) => {
+        circle.style.borderWidth = (i + 1) * 10 + "px";
+        circle.style.zIndex = -i;
+        circle.style.animationName = `rotate-${i}`;
+
+        //der Winkel erhöht sich mit jedem weiteren Kreis (nach außen) um 360 also genau eine weitere Umdrehung
+        //daher sollte nachher der innere halbkreis eine ganze umdrehung und der nte Halbkreis n Umdrehungen machen...
+        const deg = (i + 1) * 360;
+
+        //wir machen einfach mit JS für jeden index ein neues Styleelement und sparen uns somit das vielfache schreiben unserer rotation
+        const style = document.createElement("style");
+        style.innerHTML = `
+        @keyframes rotate-${i} {
+            to {
+                transform: translate(-50%, -50%) rotate(${deg}deg);
+            }
+        }
+    `;
+
+        document.body.appendChild(style);
+      });
+    </script>
+  </body>
+</html>
