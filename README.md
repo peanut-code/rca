@@ -1,3 +1,3 @@
 # rca
-a very simple beatiful looking rotating circle animation 
+a very simple beautiful looking rotating circle animation 
 made with html, css and javascript
